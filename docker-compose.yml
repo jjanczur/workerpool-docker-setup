@@ -37,7 +37,7 @@ services:
       - IEXEC_WORKER_DOCKER_REGISTRY_PASSWORD_1=${REGISTRY_PASSWORD:-}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - $RESULTS_DIR/$WORKER_NAME:$RESULTS_DIR/$WORKER_NAME
+      - $RESULTS_DIR/${WORKER_NAME:-"My_Default_Worker_Name"}:$RESULTS_DIR/${WORKER_NAME:-"My_Default_Worker_Name"}
       - ./${WALLET:-worker_wallet.json}:/${WALLET:-worker_wallet.json}:rw
     restart: unless-stopped
     networks:
