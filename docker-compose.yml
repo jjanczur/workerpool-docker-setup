@@ -7,7 +7,7 @@ networks:
 services:
   worker:
     image: iexechub/iexec-worker:7.1.2
-    container_name: ${WORKER_NAME:-"My_Default_Worker_Name"}
+    container_name: worker
     environment:
       - IEXEC_WORKER_SCONTAIN_REGISTRY_USERNAME=$SCONTAIN_REGISTRY_USERNAME
       - IEXEC_WORKER_SCONTAIN_REGISTRY_PASSWORD=$SCONTAIN_REGISTRY_PASSWORD
