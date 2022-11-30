@@ -7,7 +7,7 @@ networks:
 services:
   worker:
     image: iexechub/iexec-worker:7.1.2
-    container_name: $WORKER_NAME
+    container_name: ${WORKER_NAME:-"My_Default_Worker_Name"}
     environment:
       - IEXEC_WORKER_SCONTAIN_REGISTRY_USERNAME=$SCONTAIN_REGISTRY_USERNAME
       - IEXEC_WORKER_SCONTAIN_REGISTRY_PASSWORD=$SCONTAIN_REGISTRY_PASSWORD
@@ -38,7 +38,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - $RESULTS_DIR/$WORKER_NAME:$RESULTS_DIR/$WORKER_NAME
-      - ./$WALLET:/$WALLET:rw
+      - ./${WALLET:-worker_wallet.json}:/${WALLET:-worker_wallet.json}:rw
     restart: unless-stopped
     networks:
       worker-net:
