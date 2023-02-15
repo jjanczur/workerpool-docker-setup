@@ -15,7 +15,7 @@ services:
       - IEXEC_WORKER_DOCKER_NETWORK_NAME=worker-net
       - IEXEC_CORE_HOST=${PROD_CORE_HOST:-workerpool.workerpass.iex.ec}
       - IEXEC_CORE_PORT=7001
-      - IEXEC_CORE_PROTOCOL=https
+      - IEXEC_CORE_PROTOCOL=${PROD_CORE_PROTOCOL:-https}
       - IEXEC_WORKER_WALLET_PATH=/${WALLET:-worker_wallet.json}
       - IEXEC_WORKER_WALLET_PASSWORD=${PROD_WALLET_PASSWORD:-mySecretPassword}
       # WORKER_NAME is used for child containers names and for passing results from compute to post-compute. The folder $IEXEC_WORKER_BASE_DIR/$IEXEC_WORKER_NAME is then mounted in both compute ans post-compute containers.
